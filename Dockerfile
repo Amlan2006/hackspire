@@ -5,15 +5,15 @@ WORKDIR /app
 
 # Copy package files
 COPY package.json ./
-COPY bun.lockb ./
+
 
 # Install dependencies
-RUN bun install --frozen-lockfile
+RUN bun install 
 
 # Copy all necessary files
 COPY src/ ./src/
 COPY tsconfig.json ./
-COPY .env ./
+
 COPY README.md ./
 
 # Expose port
