@@ -1,0 +1,32 @@
+{
+  "name": "axicov-web-search",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --hot src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "blockchain:node": "npx hardhat node",
+    "blockchain:deploy": "npx hardhat run scripts/deploy.js --network localhost",
+    "blockchain:test": "node deploy-and-test.js",
+    "compile": "npx hardhat compile"
+  },
+  "dependencies": {
+    "@axicov/cli": "^1.0.2",
+    "@langchain/community": "^0.3.53",
+    "@langchain/core": "^0.3.72",
+    "@langchain/google-genai": "^0.2.16",
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "@openzeppelin/contracts": "^5.4.0",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.15.0",
+    "hardhat": "^3.0.10",
+    "hono": "^4.6.4",
+    "langchain": "^0.3.31",
+    "marked": "^16.4.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "@types/bun": "latest"
+  }
+}

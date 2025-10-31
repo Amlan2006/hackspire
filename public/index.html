@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Policy Simulator | Blockchain Governance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <h1>🌊 Ocean Policy Simulator</h1>
+                <p>Blockchain-Powered Multi-Agent Governance</p>
+            </div>
+            <div class="status" id="blockchainStatus">
+                <span class="status-dot"></span>
+                <span class="status-text">Connecting...</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Input Section -->
+            <section class="input-section">
+                <h2>Policy Scenario</h2>
+                <textarea id="scenarioInput"
+                    placeholder="Enter your oceanographic policy scenario here...&#10;&#10;Example: 'Proposed offshore wind farm development in marine protected area affecting local fishing communities'"
+                    rows="4"></textarea>
+
+                <div class="controls">
+                    <div class="rounds-control">
+                        <label for="roundsInput">Debate Rounds:</label>
+                        <select id="roundsInput">
+                            <option value="1">1 Round</option>
+                            <option value="2">2 Rounds</option>
+                            <option value="3" selected>3 Rounds</option>
+                        </select>
+                    </div>
+                    <button id="simulateBtn" class="simulate-btn">
+                        <span class="btn-text">🚀 Start AI Debate</span>
+                        <span class="btn-loader" style="display: none;">🤖 Agents Debating...</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Agents Section -->
+            <section class="agents-section">
+                <h2>ENS-Registered AI Agents</h2>
+                <div class="agents-grid">
+                    <div class="agent-card">
+                        <div class="agent-header">
+                            <span class="agent-icon">🔬</span>
+                            <div class="agent-info">
+                                <h3>Dr. Marina Rodriguez</h3>
+                                <p class="ens-name">marina.oceanpolicy.eth</p>
+                            </div>
+                        </div>
+                        <div class="agent-details">
+                            <span class="role">Marine Scientist</span>
+                            <span class="voting-power">25% Voting Power</span>
+                        </div>
+                    </div>
+
+                    <div class="agent-card">
+                        <div class="agent-header">
+                            <span class="agent-icon">⚓</span>
+                            <div class="agent-info">
+                                <h3>Captain Jake Thompson</h3>
+                                <p class="ens-name">captain.oceanpolicy.eth</p>
+                            </div>
+                        </div>
+                        <div class="agent-details">
+                            <span class="role">Commercial Fisherman</span>
+                            <span class="voting-power">20% Voting Power</span>
+                        </div>
+                    </div>
+
+                    <div class="agent-card">
+                        <div class="agent-header">
+                            <span class="agent-icon">⚖️</span>
+                            <div class="agent-info">
+                                <h3>Sarah Chen</h3>
+                                <p class="ens-name">legal.oceanpolicy.eth</p>
+                            </div>
+                        </div>
+                        <div class="agent-details">
+                            <span class="role">Maritime Legal Advisor</span>
+                            <span class="voting-power">20% Voting Power</span>
+                        </div>
+                    </div>
+
+                    <div class="agent-card">
+                        <div class="agent-header">
+                            <span class="agent-icon">📊</span>
+                            <div class="agent-info">
+                                <h3>Dr. Alex Kumar</h3>
+                                <p class="ens-name">data.oceanpolicy.eth</p>
+                            </div>
+                        </div>
+                        <div class="agent-details">
+                            <span class="role">Ocean Data Analyst</span>
+                            <span class="voting-power">20% Voting Power</span>
+                        </div>
+                    </div>
+
+                    <div class="agent-card">
+                        <div class="agent-header">
+                            <span class="agent-icon">👥</span>
+                            <div class="agent-info">
+                                <h3>Maria Santos</h3>
+                                <p class="ens-name">public.oceanpolicy.eth</p>
+                            </div>
+                        </div>
+                        <div class="agent-details">
+                            <span class="role">Public Interest Rep.</span>
+                            <span class="voting-power">15% Voting Power</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <h2>Simulation Results</h2>
+
+                <!-- Blockchain Info -->
+                <div class="blockchain-info" id="blockchainInfo">
+                    <h3>🔗 Blockchain Governance</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="label">Policy ID:</span>
+                            <span class="value" id="policyId">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Consensus Score:</span>
+                            <span class="value" id="consensusScore">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Decision:</span>
+                            <span class="value" id="majorityDecision">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Status:</span>
+                            <span class="value" id="onChainStatus">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agent Responses (Animated) -->
+                <div class="agent-responses-section" id="agentResponsesSection">
+                    <h3>🤖 Agent Responses</h3>
+                    <div class="agent-responses-container" id="agentResponsesContainer">
+                        <!-- Agent responses will be animated here -->
+                    </div>
+                </div>
+
+                <!-- Votes Summary -->
+                <div class="votes-section" id="votesSection">
+                    <h3>�️P Final Votes</h3>
+                    <div class="votes-container" id="votesContainer">
+                        <!-- Votes will be populated here -->
+                    </div>
+                </div>
+
+                <!-- Policy Summary (Markdown) -->
+                <div class="summary-section" id="summarySection">
+                    <h3>📋 Policy Analysis</h3>
+                    <div class="summary-content markdown-content" id="summaryContent">
+                        <!-- Markdown summary will be populated here -->
+                    </div>
+                </div>
+
+                <!-- Transaction Hashes -->
+                <div class="transactions-section" id="transactionsSection">
+                    <h3>⛓️ Transaction Hashes</h3>
+                    <div class="transactions-list" id="transactionsList">
+                        <!-- Transaction hashes will be populated here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="contract-info">
+                    <span>Smart Contract: <code
+                            id="contractAddress">0x89e98F0e5550c660e1c99056528e5608AAcFa033</code></span>
+                    <span id="networkInfo">Network: Demo Mode</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#" onclick="checkBlockchainStatus()">Check Status</a>
+                    <a href="#" onclick="viewContract()">View Contract</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
